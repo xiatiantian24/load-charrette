@@ -2,7 +2,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 //scroll trigger markers control
 ScrollTrigger.defaults({
-  markers: true,
+  // markers: true,
 });
 
 window.onbeforeunload = function () {
