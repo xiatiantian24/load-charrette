@@ -39,6 +39,7 @@ const s13 = document.querySelector("#s-13");
 const b13 = document.querySelector("#b-13");
 const b14 = document.querySelector("#b-14");
 const b15 = document.querySelector("#b-15");
+const s15 = document.querySelector("#s-15");
 const b16 = document.querySelector("#b-16");
 const b17 = document.querySelector("#b-17");
 const s18 = document.querySelector("#s-18");
@@ -398,7 +399,7 @@ function loadImage13() {
 
 
 //14 slides
-const slides = document.querySelectorAll(".slide");
+const slides = document.querySelectorAll("#s-14 .slide");
 let currentIndex = 0;
 
 function showSlide(index) {
@@ -412,6 +413,7 @@ function showSlide(index) {
 }
 
 function showNextSlide() {
+  console.log("test");
   currentIndex = (currentIndex + 1) % slides.length;
   showSlide(currentIndex);
 }
@@ -441,11 +443,10 @@ function showNextSlide15() {
     slides15[currentIndex15].classList.remove("crt");
 
     // Increment index for next slide
-    currentIndex15 = (currentIndex15 + 1) % slides.length;
+    currentIndex15 = (currentIndex15 + 1) % slides15.length;
 
     // Hide current slide
     slides15[currentIndex15].style.display = "none";
-
 
     // Show next slide
     slides15[currentIndex15].style.display = "block";
