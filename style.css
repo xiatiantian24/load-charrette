@@ -8,6 +8,7 @@
     width: 95vw;
     margin: auto;
     margin-top: 25vh;
+    margin-bottom: 25vh;
     display: grid;
     grid-template-columns: repeat(1, 500px);
     gap: 100px;
@@ -232,7 +233,6 @@ p {
 #s-12 {
     background-image: url("https://media1.tenor.com/m/2H2fBP1-BJMAAAAd/pixel.gif");
     border: none;
-
 }
 
 #l-12 {
@@ -453,7 +453,6 @@ p {
     }
 }
 
-
 #s-18 {
     background-position-y: 80%;
 }
@@ -463,10 +462,59 @@ p {
 
 }
 
-  .rectangle {
+.rectangle {
     width: 20px;
     height: 100px;
     background-color: rgb(255, 255, 255);
     border: 2px solid rgb(36, 36, 36);
     margin-right: 10px;
-  }
+}
+
+#s-19 {
+    background-image: url("https://media1.tenor.com/m/2H2fBP1-BJMAAAAd/pixel.gif");
+    border: none;
+}
+
+#l-19 {
+    display: flex;
+    grid-template-columns: repeat(10, 50px);
+    flex-wrap: wrap;
+    width: 500px;
+    height: 200px;
+    position: relative;
+    box-sizing: border-box;
+    outline: 3px solid rgb(36, 36, 36);
+}
+
+#l-19 .box {
+    width: 50px;
+    height: 50px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+#p-19 {
+    position: absolute;
+    pointer-events: none;
+    font-size: 28px;
+}
+
+#wrapper-20 {
+    width: fit-content;
+    height: 300vh;
+    border: none;
+}
+
+#s-20 {
+    position: sticky;
+    top: 90vh;
+    background-size: contain;
+    margin-bottom: 0;
+}
+
+#p-20 {
+    position: absolute;
+    top: -80%;
+    margin-bottom: 10px;
+    font-size: 53px;
+}

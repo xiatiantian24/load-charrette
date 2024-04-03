@@ -2,7 +2,7 @@ gsap.registerPlugin(ScrollTrigger)
 
 //scroll trigger markers control
 ScrollTrigger.defaults({
-  // markers: true,
+  markers: true,
 });
 
 window.onbeforeunload = function () {
@@ -43,6 +43,12 @@ const b16 = document.querySelector("#b-16");
 const b17 = document.querySelector("#b-17");
 const s18 = document.querySelector("#s-18");
 const b18 = document.querySelector("#b-18");
+const l19 = document.querySelector("#l-19");
+const p19 = document.querySelector("#p-19");
+const s20 = document.querySelector("#s-20");
+const l20 = document.querySelector("#l-20");
+const p20 = document.querySelector("#p-20");
+const w20 = document.querySelector("#wrapper-20");
 
 
 
@@ -459,49 +465,119 @@ b16.addEventListener("click", function () {
 
 
 //17 slide deck
-  const slides17 = document.querySelectorAll("#s-17 .slide");
-  let currentIndex17 = 0;
+const slides17 = document.querySelectorAll("#s-17 .slide");
+let currentIndex17 = 0;
 
-  function showSlide17(index) {
-    slides17.forEach((slide, i) => {
-      slide.style.display = "block";
-      if (i === index) {
-        slide.classList.add("animate"); // Add animation class
-        slide.style.zIndex = "1"; // Ensure current slide is on top
-      } else {
-        slide.classList.remove("animate"); // Remove animation class from other slides
-        slide.style.zIndex = "0"; // Send other slides to bottom
-      }
-    });
-  }
+function showSlide17(index) {
+  slides17.forEach((slide, i) => {
+    slide.style.display = "block";
+    if (i === index) {
+      slide.classList.add("animate"); // Add animation class
+      slide.style.zIndex = "1"; // Ensure current slide is on top
+    } else {
+      slide.classList.remove("animate"); // Remove animation class from other slides
+      slide.style.zIndex = "0"; // Send other slides to bottom
+    }
+  });
+}
 
-  function showNextSlide17() {
-    currentIndex17 = (currentIndex17 + 1) % slides17.length;
-    showSlide17(currentIndex17);
-  }
-
-  b17.addEventListener("click", showNextSlide17);
-
-  // Show the first slide initially
+function showNextSlide17() {
+  currentIndex17 = (currentIndex17 + 1) % slides17.length;
   showSlide17(currentIndex17);
+}
+
+b17.addEventListener("click", showNextSlide17);
+
+// Show the first slide initially
+showSlide17(currentIndex17);
 
 
-  //18 filled rectangles
-  b18.addEventListener("click", function() {
-    const rectangles = document.querySelectorAll(".rectangle");
+//18 filled rectangles
+b18.addEventListener("click", function () {
+  const rectangles = document.querySelectorAll(".rectangle");
 
-    rectangles.forEach((rectangle, index) => {
-      setTimeout(() => {
-        rectangle.style.backgroundColor = "rgb(36, 36, 36)"; 
-      }, index * 50); 
-    });
-    setTimeout(loadImage18, 1000);
+  rectangles.forEach((rectangle, index) => {
+    setTimeout(() => {
+      rectangle.style.backgroundColor = "rgb(36, 36, 36)";
+    }, index * 50);
+  });
+  setTimeout(loadImage18, 1000);
 
   function loadImage18() {
     b18.style.visibility = "hidden";
     document.querySelector(".rectangle-wrapper").style.visibility = "hidden";
-      s18.style.backgroundImage = "url('https://media1.tenor.com/m/m9gNvwgASXsAAAAC/happy-dancing.gif')";
+    s18.style.backgroundImage = "url('https://media1.tenor.com/m/m9gNvwgASXsAAAAC/happy-dancing.gif')";
   }
-  
+});
+
+//19 click to disappear box
+const boxes19 = [];
+var opacity19 = 1;
+
+for (let i = 0; i < 4; i++) {
+  for (let j = 0; j < 10; j++) {
+    const box19 = document.createElement("div");
+    box19.className = "box";
+    l19.appendChild(box19);
+    boxes19.push(box19);
+  }
+}
+
+boxes19.forEach(box => {
+  box.addEventListener("click", function () {
+    box.style.visibility = "hidden";
+    opacity19 -= 0.025;
+    p19.style.opacity = opacity19;
   });
+});
+
+
+//20 sticky
+function startCountdown() {
+  var count = 2;
+
+  // Update countdown every second
+  var countdownInterval = setInterval(function () {
+    s3.innerText = count;
+    count--;
+
+    // If count reaches 0, stop countdown
+    if (count < 0) {
+      clearInterval(countdownInterval);
+      s3.innerHTML = "";
+      s3.style.backgroundImage = "url('https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/81/ae/87/81ae87a6-41f6-2eb6-7a06-502d11060e4b/859757105007_cover.png/1200x1200bf-60.jpg')";
+      s3.style.backgroundPositionY = "30%";
+
+    }
+  }, 1000); // Update every second (1000 milliseconds)
+}
+var tl = gsap.timeline({repeat:-1, yoyo:true});
+var tween = gsap.to("#s-20", { 
+  y: 40, 
+  duration: 0.5,
+  yoyo: true
+});
+tl.add(tween);
+
+ScrollTrigger.create({
+  trigger: w20,
+  start: 'top bottom',
+  end: 'bottom bottom',
+  id: 20,
+  onEnter: () => {
+    tl.play();
+
+  },
+  onLeave: () => {
+    tl.pause();
+        p20.innerText = "Fine. Here you go!";
+    s20.style.backgroundImage = "url('20.gif')";
+  },
+  onLeaveBack: () => {
+    tl.resume();
+    p20.innerText = "Hold on, still loading!!";
+    s20.style.backgroundImage = "none";
+
+  }
+});
 
