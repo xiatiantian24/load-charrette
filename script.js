@@ -31,6 +31,19 @@ const s9 = document.querySelector("#s-9");
 const b10 = document.querySelector("#b-10");
 const s10 = document.querySelector("#s-10");
 const s11 = document.querySelector("#s-11");
+const l11 = document.querySelector("#l-11");
+const s12 = document.querySelector("#s-12");
+const l12 = document.querySelector("#l-12");
+const b12 = document.querySelector("#b-12");
+const s13 = document.querySelector("#s-13");
+const b13 = document.querySelector("#b-13");
+const b14 = document.querySelector("#b-14");
+const b15 = document.querySelector("#b-15");
+const b16 = document.querySelector("#b-16");
+const b17 = document.querySelector("#b-17");
+const s18 = document.querySelector("#s-18");
+const b18 = document.querySelector("#b-18");
+
 
 
 
@@ -85,7 +98,7 @@ function startCountdown() {
       clearInterval(countdownInterval);
       s3.innerHTML = "";
       s3.style.backgroundImage = "url('https://is1-ssl.mzstatic.com/image/thumb/Music115/v4/81/ae/87/81ae87a6-41f6-2eb6-7a06-502d11060e4b/859757105007_cover.png/1200x1200bf-60.jpg')";
-      s3.style.backgroundPositionY= "30%";
+      s3.style.backgroundPositionY = "30%";
 
     }
   }, 1000); // Update every second (1000 milliseconds)
@@ -100,7 +113,6 @@ ScrollTrigger.create({
   },
   onLeave: () => {
     s3.style.background = "#fff";
-    console.log("leave");
   },
 });
 
@@ -151,14 +163,14 @@ s5.addEventListener('mouseout', () => {
 
 function enlarge() {
   i5.style.transition = "transform 0.1s";
-  i5.style.transformOrigin = "bottom right"; 
+  i5.style.transformOrigin = "bottom right";
   i5.style.width = "100px";
   i5.style.height = "100px";
 }
 
 function shrink() {
   i5.style.transition = "transform 0.1s";
-  i5.style.transformOrigin = "bottom right"; 
+  i5.style.transformOrigin = "bottom right";
   i5.style.width = "20px";
   i5.style.height = "20px";
 }
@@ -168,7 +180,7 @@ a5.addEventListener("mouseout", shrink);
 
 
 //7 blink
-b7.onclick = function() {
+b7.onclick = function () {
   toggleButtonVisibility();
 }
 
@@ -182,7 +194,7 @@ function toggleButtonVisibility() {
   function toggleVisibility() {
     button.style.visibility = (button.style.visibility === "visible") ? "hidden" : "visible";
     blinkCounter++;
-    
+
     // Check if all blinks are done
     if (blinkCounter < blinkCount) {
       // Increase the speed of blinking
@@ -201,7 +213,7 @@ function toggleButtonVisibility() {
 
 
 //8 404 to 200
-b8.onclick = function() {
+b8.onclick = function () {
   setTimeout(countdown(), 1000);
 }
 
@@ -219,7 +231,7 @@ function countdown() {
     if (count >= 200) {
       setTimeout(updateCount, 1); // Update every second (1000 milliseconds)
     }
-    else{
+    else {
       setTimeout(loadImage8, 300);
     }
   }
@@ -236,7 +248,7 @@ function loadImage8() {
 
 
 //9 car dashboard
-b9.onclick = function() {
+b9.onclick = function () {
   var needle = document.querySelector('.needle');
   needle.style.transition = 'transform 1s ease-in-out';
   needle.style.transform = 'translate(-50%, -100%) rotate(60deg)';
@@ -253,15 +265,243 @@ function loadImage9() {
 
 //10 filter
 var divisor = document.getElementById("divisor"),
-    handle = document.getElementById("handle"),
-    slider = document.getElementById("slider");
+  handle = document.getElementById("handle"),
+  slider = document.getElementById("slider");
 
 function moveDivisor() {
-  handle.style.left = slider.value+"%";
-	divisor.style.width = slider.value+"%";
+  handle.style.left = slider.value + "%";
+  divisor.style.width = slider.value + "%";
 }
 
-window.onload = function() {
-	moveDivisor();
+window.onload = function () {
+  moveDivisor();
 };
+
+
+//11 right click
+function openMenu(event) {
+  // Prevent the default context menu from appearing
+  event.preventDefault();
+
+  // Get the menu panel element
+  var menuPanel = document.getElementById("menuPanel");
+
+  // Get the mouse position
+  var mouseX = event.clientX;
+  var mouseY = event.clientY;
+
+  // Position the menu panel at the mouse position
+  menuPanel.style.display = "block";
+  menuPanel.style.left = mouseX + "px";
+  menuPanel.style.top = mouseY + "px";
+
+  // Add event listener to close the menu when clicking outside of it
+  document.addEventListener("mousedown", closeMenuOnClickOutside);
+}
+
+function closeMenuOnClickOutside(event) {
+  // Get the menu panel element
+  var menuPanel = document.getElementById("menuPanel");
+
+  // Check if the click occurred outside of the menu panel
+  if (!menuPanel.contains(event.target)) {
+    // Hide the menu panel
+    menuPanel.style.display = "none";
+
+    // Remove the event listener
+    document.removeEventListener("mousedown", closeMenuOnClickOutside);
+  }
+}
+
+// Attach the event listener to the right-click event on the button
+s11.addEventListener("contextmenu", openMenu);
+
+function loadImage11() {
+  menuPanel.style.display = "none";
+  document.getElementById("p-11").style.display = "none";
+  s11.style.backgroundImage = "url('https://media1.tenor.com/m/RRhijk6pHAoAAAAd/good-morning.gif')";
+}
+
+l11.addEventListener("click", loadImage11);
+
+
+//12 boxes
+const boxes = [];
+
+// Create the grid of boxes
+for (let i = 0; i < 2; i++) {
+  for (let j = 0; j < 5; j++) {
+    const box = document.createElement("div");
+    box.className = "box";
+    l12.appendChild(box);
+    boxes.push(box);
+  }
+}
+
+// Function to toggle visibility of a random box
+function toggleRandomBox() {
+  // Filter out already invisible boxes
+  const visibleBoxes = boxes.filter(box => box.style.visibility !== "hidden");
+  // Check if there are any visible boxes left
+  if (visibleBoxes.length > 0) {
+    b12.innerHTML = "CLick Again";
+    // Select a random visible box
+    const randomIndex = Math.floor(Math.random() * visibleBoxes.length);
+    const randomBox = visibleBoxes[randomIndex];
+    // Toggle visibility of the random box
+    randomBox.style.visibility = "hidden";
+    console.log(visibleBoxes.length);
+    if (visibleBoxes.length == 1) {
+      b12.style.display = "none";
+    }
+  }
+}
+
+// Add event listener to the button
+b12.addEventListener("click", toggleRandomBox);
+
+
+//13 line merges
+const line1 = document.getElementById("line1");
+const line2 = document.getElementById("line2");
+const lines = document.getElementsByClassName('line');
+
+
+// Function to adjust line positions when hovering over the button
+b13.addEventListener("mouseover", function () {
+  // Move the lines apart
+  line1.style.transform = "translateX(250px)"; // Translate line1 50px to the right
+  line2.style.transform = "translateX(-250px)"; // Translate line2 50px to the left
+  setTimeout(loadImage13, 300);
+});
+
+// Function to reset line positions when unhovering the button
+b13.addEventListener("mouseout", function () {
+  // Move the lines back to their original positions
+  line1.style.transform = "translateX(0)"; // Reset line1 translation
+  line2.style.transform = "translateX(0)"; // Reset line2 translation
+});
+
+function loadImage13() {
+  for (let i = 0; i < lines.length; i++) {
+    lines[i].style.visibility = 'hidden';
+  }
+  b13.style.visibility = "hidden";
+  s13.style.backgroundImage = "url('https://media1.tenor.com/m/Y0eBj_hBiUsAAAAC/linville-river-river.gif')";
+}
+
+
+//14 slides
+const slides = document.querySelectorAll(".slide");
+let currentIndex = 0;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    if (i === index) {
+      slide.style.display = "block"; // Show current slide
+    } else {
+      slide.style.display = "none"; // Hide other slides
+    }
+  });
+}
+
+function showNextSlide() {
+  currentIndex = (currentIndex + 1) % slides.length;
+  showSlide(currentIndex);
+}
+
+function showPrevSlide() {
+  currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+  showSlide(currentIndex);
+}
+
+// prevButton.addEventListener("click", showPrevSlide);
+b14.addEventListener("click", showNextSlide);
+
+// Show the first slide initially
+showSlide(currentIndex);
+
+
+//15 flicker slide
+const slides15 = document.querySelectorAll("#s-15 .slide");
+let currentIndex15 = 0;
+
+function showNextSlide15() {
+  // Add class to trigger animation
+  slides15[currentIndex15].classList.add("crt");
+
+  // Set timeout to remove class after animation duration
+  setTimeout(() => {
+    slides15[currentIndex15].classList.remove("crt");
+
+    // Increment index for next slide
+    currentIndex15 = (currentIndex15 + 1) % slides.length;
+
+    // Hide current slide
+    slides15[currentIndex15].style.display = "none";
+
+
+    // Show next slide
+    slides15[currentIndex15].style.display = "block";
+  }, 300); // Adjust timing to match animation duration
+}
+
+b15.addEventListener("click", showNextSlide15);
+
+// Show the first slide initially
+slides15[currentIndex15].style.display = "block";
+
+
+//16 old tv effect 
+b16.addEventListener("click", function () {
+  document.querySelector(".screen").classList.toggle("hidden");
+});
+
+
+//17 slide deck
+  const slides17 = document.querySelectorAll("#s-17 .slide");
+  let currentIndex17 = 0;
+
+  function showSlide17(index) {
+    slides17.forEach((slide, i) => {
+      slide.style.display = "block";
+      if (i === index) {
+        slide.classList.add("animate"); // Add animation class
+        slide.style.zIndex = "1"; // Ensure current slide is on top
+      } else {
+        slide.classList.remove("animate"); // Remove animation class from other slides
+        slide.style.zIndex = "0"; // Send other slides to bottom
+      }
+    });
+  }
+
+  function showNextSlide17() {
+    currentIndex17 = (currentIndex17 + 1) % slides17.length;
+    showSlide17(currentIndex17);
+  }
+
+  b17.addEventListener("click", showNextSlide17);
+
+  // Show the first slide initially
+  showSlide17(currentIndex17);
+
+
+  //18 filled rectangles
+  b18.addEventListener("click", function() {
+    const rectangles = document.querySelectorAll(".rectangle");
+
+    rectangles.forEach((rectangle, index) => {
+      setTimeout(() => {
+        rectangle.style.backgroundColor = "rgb(36, 36, 36)"; 
+      }, index * 50); 
+    });
+    setTimeout(loadImage18, 1000);
+
+  function loadImage18() {
+    b18.style.visibility = "hidden";
+    document.querySelector(".rectangle-wrapper").style.visibility = "hidden";
+      s18.style.backgroundImage = "url('https://media1.tenor.com/m/m9gNvwgASXsAAAAC/happy-dancing.gif')";
+  }
+  
+  });
 

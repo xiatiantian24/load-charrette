@@ -172,9 +172,16 @@ p {
 #b-7,
 #b-8,
 #b-9,
-#b-10 {
+#b-10,
+#b-12,
+#b-13,
+#b-14,
+#b-15,
+#b-16,
+#b-17,
+#b-18 {
     background-color: #d8d8d8;
-    border: 6px solid rgb(81, 81, 81);
+    border: 4px solid rgb(81, 81, 81);
     border-radius: 3px;
     font-size: 20px;
     padding: 8px;
@@ -186,3 +193,280 @@ p {
 #s-9 {
     border: none;
 }
+
+#s-11 {
+    background-position-y: center;
+
+}
+
+#p-11 {
+    font-size: 28px;
+}
+
+#menuPanel {
+    display: none;
+    position: fixed;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+    width: 300px;
+    height: 400px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+}
+
+
+#l-11 {
+    padding: 12px;
+    cursor: pointer;
+    width: 95%;
+    margin: auto;
+    font-size: 18px;
+}
+
+#l-11:hover {
+    background-color: #f0f0f0;
+}
+
+#s-12 {
+    background-image: url("https://media1.tenor.com/m/2H2fBP1-BJMAAAAd/pixel.gif");
+    border: none;
+
+}
+
+#l-12 {
+    display: flex;
+    grid-template-columns: repeat(5, 100px);
+    flex-wrap: wrap;
+    width: 500px;
+    height: 200px;
+    position: relative;
+    box-sizing: border-box;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    box-sizing: border-box;
+    background-color: #ffffff;
+}
+
+.invisible {
+    visibility: hidden;
+}
+
+.line {
+    position: absolute;
+    height: 2px;
+    width: 250px;
+    background-color: rgb(36, 36, 36);
+    transition: transform 0.5s ease;
+}
+
+#line1 {
+    left: -200px;
+    top: 100px;
+}
+
+#line2 {
+    left: 450px;
+    top: 100px;
+}
+
+#s-13 {
+    border: none;
+    background-position-y: center;
+}
+
+
+.slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-position-y: 30%;
+    background-size: cover;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    /* height: 100%;  */
+    object-fit: cover;
+    object-position: bottom;
+}
+
+
+#s-15 .slide {
+    display: none;
+}
+
+
+#s-15 .crt {
+    display: block;
+    width: 100%;
+    height: 100%;
+    animation-name: slide;
+    animation-duration: 0.3s;
+    animation-timing-function: ease-in-out;
+    animation-delay: 0.01s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-fill-mode: both;
+    animation-play-state: running;
+    background-color: black;
+}
+
+@keyframes flicker {
+    0% {
+        opacity: 0.27861;
+    }
+
+    5% {
+        opacity: 0.34769;
+    }
+
+    10% {
+        opacity: 0.23604;
+    }
+
+    15% {
+        opacity: 0.90626;
+    }
+
+    20% {
+        opacity: 0.18128;
+    }
+
+    25% {
+        opacity: 0.83891;
+    }
+
+    30% {
+        opacity: 0.65583;
+    }
+
+    35% {
+        opacity: 0.67807;
+    }
+
+    40% {
+        opacity: 0.26559;
+    }
+
+    45% {
+        opacity: 0.84693;
+    }
+
+    50% {
+        opacity: 0.96019;
+    }
+
+    55% {
+        opacity: 0.08594;
+    }
+
+    60% {
+        opacity: 0.20313;
+    }
+
+    65% {
+        opacity: 0.71988;
+    }
+
+    70% {
+        opacity: 0.53455;
+    }
+
+    75% {
+        opacity: 0.37288;
+    }
+
+    80% {
+        opacity: 0.71428;
+    }
+
+    85% {
+        opacity: 0.70419;
+    }
+
+    90% {
+        opacity: 0.7003;
+    }
+
+    95% {
+        opacity: 0.36108;
+    }
+
+    100% {
+        opacity: 0.24387;
+    }
+}
+
+#s-17 {
+    position: relative;
+    border: none;
+}
+
+
+#s-17 .slideshow {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    background-repeat: no-repeat;
+    background-position-y: 30%;
+    background-size: cover;
+
+}
+
+#s-17 .slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: bottom;
+    /* display: flex;
+    z-index: 1; */
+}
+
+#s-17 .slide.animate {
+    animation: slideAnimation 0.3s ease-in-out forwards;
+}
+
+@keyframes slideAnimation {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    50% {
+        transform: translate(20px, 20px);
+    }
+
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+
+#s-18 {
+    background-position-y: 80%;
+}
+
+#s-18 .rectangle-wrapper {
+    display: flex;
+
+}
+
+  .rectangle {
+    width: 20px;
+    height: 100px;
+    background-color: rgb(255, 255, 255);
+    border: 2px solid rgb(36, 36, 36);
+    margin-right: 10px;
+  }
